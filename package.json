@@ -1,32 +1,19 @@
 {
   "name": "tomar-murgi-store",
-  "version": "1.0.0",
-  "description": "Official online retail and restaurant wholesale poultry platform for Tomar Murgi Store (তোমার মুরগি স্টোর).",
-  "type": "module",
+  "version": "2.0.0",
+  "description": "Tomar Murgi Store (তোমার মুরগি স্টোর) — Production Poultry Retail & Commercial B2B Web Platform",
+  "main": "app.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "playwright test"
+    "start": "npx serve ."
   },
   "keywords": [
     "poultry",
-    "fresh-chicken",
-    "halal",
     "dhaka",
-    "bangladesh",
+    "halal",
+    "chicken",
     "b2b",
-    "wholesale"
+    "bangladesh"
   ],
   "author": "Tomar Murgi Store",
-  "license": "ISC",
-  "dependencies": {
-    "animejs": "^3.2.2",
-    "lucide": "^1.16.0",
-    "motion": "^12.45.0"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.63.0",
-    "vite": "^8.3.3"
-  }
+  "license": "MIT"
 }

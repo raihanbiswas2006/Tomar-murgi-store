@@ -417,7 +417,11 @@ function openCartDrawer() {
   drawer.setAttribute('aria-hidden', 'false');
 
   const closeBtn = document.getElementById('drawer-close-btn');
-  if (closeBtn) closeBtn.focus();
+  if (closeBtn) {
+    requestAnimationFrame(() => {
+      closeBtn.focus();
+    });
+  }
 }
 
 function closeCartDrawer() {

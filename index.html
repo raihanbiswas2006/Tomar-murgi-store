@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>তোমার মুরগি স্টোর (Tomar Murgi Store) | তাজা ও স্বাস্থ্যসম্মত হালাল পোল্ট্রি ডেলিভারি</title>
+  <meta name="description" content="ঢাকার বিশ্বস্ত তাজা মুরগি ও ডিম ডেলিভারি প্লাটফর্ম। ১০০% হালাল জবেহ, সঠিক ওজন, ক্লিনিক্যাল এয়ার-চিলড ড্রেসিং এবং রেস্টুরেন্ট বাল্ক হোলসেল সাপ্লাই।" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23B83222'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/></svg>" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Core Design Tokens & Styles -->
+  <link rel="stylesheet" href="./tokens.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. GLOBAL TOPBAR
+       ========================================================================= -->
+  <aside class="topbar" aria-label="Quick contact and delivery coverage">
+    <div class="container topbar-container">
+      <div class="topbar-left">
+        <div class="area-picker-wrapper">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="topbar.area_label">ডেলিভারি এলাকা:</span>
+          <select id="global-area-select" class="topbar-select" aria-label="Select delivery neighborhood">
+            <option value="gulshan">গুলশান (১ ও ২)</option>
+            <option value="banani">বনানী ও ডিওএইচএস</option>
+            <option value="dhanmondi">ধানমন্ডি ও জিগাতলা</option>
+            <option value="uttara">উত্তরা (সেক্টর ১-১৮)</option>
+            <option value="mirpur">মিরপুর (১-১৪)</option>
+            <option value="mohammadpur">মোহাম্মদপুর ও আদাবর</option>
+            <option value="bashundhara">বসুন্ধরা আ/এ</option>
+            <option value="badda">বাড্ডা ও রামপুরা</option>
+            <option value="motijheel">মতিঝিল ও পল্টন</option>
+          </select>
+        </div>
+        <div class="topbar-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span data-i18n="topbar.hours">সকাল ৬:০০ - রাত ১০:০০</span>
+        </div>
+      </div>
+      
+      <div class="topbar-right">
+        <div class="topbar-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span data-i18n="topbar.hotline">হটলাইন ও হোয়াটসঅ্যাপ:</span>
+          <strong class="tabular-numbers">+880 1700-000000</strong>
+        </div>
+        <span class="topbar-badge-pill" data-i18n="hero.badge">১০০% পরীক্ষিত কোল্ড চেইন ফ্রেশনেস</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. MAIN HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="header-sticky">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link" aria-label="Tomar Murgi Store Home">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"/>
+            <path d="M18 8h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-4"/>
+            <circle cx="8" cy="12" r="2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 data-i18n="brand.name">তোমার মুরগি স্টোর</h1>
+          <span data-i18n="brand.tagline">ফার্ম ফ্রেশ ও স্বাস্থ্যসম্মত হালাল পোল্ট্রি</span>
+        </div>
+      </a>
+
+      <!-- Customer Segment Switcher (Retail vs B2B) -->
+      <nav class="mode-toggle-group" aria-label="Customer Audience Selector">
+        <button id="mode-retail-btn" class="mode-btn active" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span data-i18n="topbar.mode.retail">বাসার বাজার (Retail)</span>
+        </button>
+        <button id="mode-b2b-btn" class="mode-btn" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span data-i18n="topbar.mode.b2b">রেস্টুরেন্ট সাপ্লাই (B2B)</span>
+        </button>
+      </nav>
+
+      <!-- Header Actions: Language Switcher & Cart Trigger -->
+      <div class="header-actions">
+        <button id="lang-switch-btn" class="lang-btn" type="button" aria-label="Toggle Language between English and Bengali">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="current-lang-label">বাংলা</span>
+        </button>
+
+        <button id="cart-trigger-btn" class="cart-trigger-btn" type="button" aria-label="Open Shopping Cart Drawer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span data-i18n="cart.title">আপনার ঝুড়ি</span>
+          <span id="header-cart-count" class="badge-count tabular-numbers">০</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. MAIN CONTENT
+       ========================================================================= -->
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section" aria-labelledby="hero-main-title">
+      <div class="container hero-grid">
+        <div class="hero-text-block">
+          <div class="hero-pill-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span data-i18n="hero.badge">১০০% পরীক্ষিত কোল্ড চেইন ফ্রেশনেস</span>
+          </div>
+          <h2 id="hero-main-title" class="hero-title" data-i18n="hero.title">ফার্মের খাঁটি তাজা মুরগি, সরাসরি আপনার কিচেনে।</h2>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">কোনো প্রিজারভেটিভ বা ওয়াটার ইনজেকশন নেই। সুস্থ জীবন্ত মুরগির সঠিক লাইভ ওজন, ক্লিনিক্যাল এয়ার-চিলড ড্রেসিং এবং নিখুঁত মনপসন্দ কাটিং।</p>
+          
+          <div class="hero-actions">
+            <a href="#retail-catalog" class="btn-primary" id="hero-browse-cta">
+              <span data-i18n="hero.cta.catalog">আজকের তাজা মুরগি দেখুন</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#b2b-wholesale" class="btn-secondary" id="hero-b2b-cta">
+              <span data-i18n="hero.cta.b2b">রেস্টুরেন্ট বাল্ক কোটেশন</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Quick Stats Bar -->
+          <div class="stats-bar">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="stat-text">
+                <h4 data-i18n="hero.stat.delivery">৪৫ মিনিট দ্রুত ডেলিভারি</h4>
+                <p data-i18n="hero.stat.delivery_sub">ঢাকা শহরের কাভার্ড এরিয়ায়</p>
+              </div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="stat-text">
+                <h4 data-i18n="hero.stat.preservative">০% প্রিজারভেটিভ</h4>
+                <p data-i18n="hero.stat.preservative_sub">সম্পূর্ণ রাসায়নিক মুক্ত</p>
+              </div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div class="stat-text">
+                <h4 data-i18n="hero.stat.partners">১,২০০+ কিচেন পার্টনার</h4>
+                <p data-i18n="hero.stat.partners_sub">প্রতিদিনের বিশ্বস্ত সরবরাহ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Clean Photography Banner -->
+        <div class="hero-banner-frame">
+          <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=1400&q=80" alt="Clean fresh raw poultry farm meat cuts on marble counter" loading="eager" fetchpriority="high" />
+          <div class="hero-banner-floating-tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38DFB0" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Air-Chilled & 100% Halal Slaughtered</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Pillars Section -->
+    <section class="trust-section" aria-label="Core Quality Pillars">
+      <div class="container trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="trust-content">
+            <h3 data-i18n="trust.halal.title">১০০% হালাল জবেহ</h3>
+            <p data-i18n="trust.halal.desc">শরীয়ত সম্মত হস্তনির্মিত জবেহ ও রক্তক্ষরণ নিশ্চিতকরণ।</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="trust-content">
+            <h3 data-i18n="trust.dressing.title">ক্লিনিক্যাল ড্রেসিং ও জিরো ওয়াটার</h3>
+            <p data-i18n="trust.dressing.desc">ওজন বৃদ্ধির জন্য কোনো পানি ইনজেকশন দেওয়া হয় না। ফ্রি প্রফেশনাল কাটিং।</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v2M14 2v2M4 7h16M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12"/></svg>
+          </div>
+          <div class="trust-content">
+            <h3 data-i18n="trust.coldchain.title">ফার্ম টু ডোর কোল্ড-চেইন</h3>
+            <p data-i18n="trust.coldchain.desc">৪° সে. নিয়ন্ত্রিত তাপমাত্রায় সংরক্ষিত তাজা ডেলিভারি।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retail Product Catalog Section -->
+    <section id="retail-catalog" class="catalog-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2 data-i18n="nav.catalog">তাজা মুরগির বাজার</h2>
+            <p data-i18n="hero.subtitle">লাইভ ওজন থেকে পরিচ্ছন্ন ফ্রেশ কাটিং — আপনার পরিবারের জন্য স্বাস্থ্যকর নির্বাচন।</p>
+          </div>
+        </div>
+
+        <!-- Category Tabs Navigation with Sliding Pill -->
+        <div class="tabs-scroll-container">
+          <nav id="category-tabs-nav" class="category-tabs-nav" aria-label="Product Categories">
+            <div id="tab-active-indicator" class="tab-active-indicator"></div>
+            <button class="category-tab-btn active" data-category="all" type="button" data-i18n="tab.all">সব পণ্য</button>
+            <button class="category-tab-btn" data-category="broiler" type="button" data-i18n="tab.broiler">ফার্ম ব্রয়লার</button>
+            <button class="category-tab-btn" data-category="sonali" type="button" data-i18n="tab.sonali">সোনালী মুরগি</button>
+            <button class="category-tab-btn" data-category="deshi" type="button" data-i18n="tab.deshi">খাঁটি দেশি</button>
+            <button class="category-tab-btn" data-category="layer" type="button" data-i18n="tab.layer">কক ও লেয়ার</button>
+            <button class="category-tab-btn" data-category="cuts" type="button" data-i18n="tab.cuts">বোনলেস ও কাট পিস</button>
+            <button class="category-tab-btn" data-category="eggs" type="button" data-i18n="tab.eggs">ফার্ম ও অর্গানিক ডিম</button>
+          </nav>
+        </div>
+
+        <!-- Product Grid (Dynamic rendering via products.js & main.js) -->
+        <div id="product-grid" class="product-grid" role="region" aria-live="polite">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Scheduled Delivery Slot Selector -->
+    <section id="delivery-slots-section" class="slots-section" aria-labelledby="slots-heading">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 id="slots-heading" data-i18n="slots.section_title">ডেলিভারির সুবিধাজনক সময় বেছে নিন</h2>
+          <p data-i18n="slots.section_subtitle">আপনার রান্নার সময়ের সাথে মিলিয়ে কোল্ড-চেইন স্লট বাছাই করুন</p>
+        </div>
+
+        <div id="slots-grid" class="slots-grid" role="radiogroup" aria-label="Available Delivery Slots">
+          <!-- Populated dynamically via products.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- B2B Wholesale Module -->
+    <section id="b2b-wholesale" class="b2b-section" aria-labelledby="b2b-heading">
+      <div class="container">
+        <div class="b2b-header-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span data-i18n="b2b.section_badge">হোটেল, রেস্টুরেন্ট ও ক্যাটারিং পার্টনারশিপ</span>
+        </div>
+
+        <div class="b2b-grid">
+          <!-- Left: Wholesale Benefits & Tier Matrix -->
+          <div class="b2b-info-pane">
+            <h3 id="b2b-heading" data-i18n="b2b.title">কমার্শিয়াল বাল্ক পোল্ট্রি সাপ্লাই প্রোগ্রাম</h3>
+            <p data-i18n="b2b.subtitle">ঢাকার শীর্ষ রেস্টুরেন্ট ও কিচেন সমূহে ভোরবেলা নির্ভরযোগ্য, নিয়ন্ত্রিত মূল্যে মানসম্মত মুরগি সরবরাহ।</p>
+
+            <div class="tiers-matrix">
+              <div class="tier-card" data-tier="tier-1">
+                <span class="tier-label">১০ কেজি - ২৫ কেজি</span>
+                <span class="tier-perks">৫% হোলসেল ডিসকাউন্ট</span>
+              </div>
+              <div class="tier-card highlight" data-tier="tier-2">
+                <span class="tier-label">২৬ কেজি - ৫০ কেজি</span>
+                <span class="tier-perks">৮% ডিসকাউন্ট + ফ্রি প্রফেশনাল প্যাকেজিং</span>
+              </div>
+              <div class="tier-card" data-tier="tier-3">
+                <span class="tier-label">৫০+ কেজি</span>
+                <span class="tier-perks">বিশেষ কন্ট্রাক্ট রেট + ভোর ৫:০০ টায় ডেলিভারি</span>
+              </div>
+            </div>
+
+            <div class="hero-banner-frame" style="aspect-ratio: 16/9; max-height: 240px;">
+              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Restaurant commercial kitchen chef prep" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Right: Interactive B2B Bulk Calculator & Inquiry Form -->
+          <div class="b2b-calc-box">
+            <h4 class="b2b-calc-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-freshness-primary-600)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+              <span data-i18n="b2b.calc_title">বাল্ক অর্ডার প্রাইস ক্যালকুলেটর</span>
+            </h4>
+
+            <form id="b2b-quote-form" novalidate>
+              <div class="form-group">
+                <label for="b2b-variety-select" class="form-label" data-i18n="b2b.type_label">মুরগির ধরন নির্বাচন করুন:</label>
+                <select id="b2b-variety-select" class="form-select">
+                  <option value="prod-broiler">তাজা ফার্ম ব্রয়লার মুরগি (লাইভ)</option>
+                  <option value="prod-sonali" selected>প্রিমিয়াম সোনালী মুরগি (ক্লাসিক)</option>
+                  <option value="prod-deshi">খাঁটি দেশি মুরগি (ফ্রি-রেঞ্জ)</option>
+                  <option value="prod-boneless-breast">তাজা বোনলেস চিকেন ব্রেস্ট ফিলে</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="b2b-cut-select" class="form-label" data-i18n="b2b.cut_label">রান্নার কাটিং স্পেসিফিকেশন:</label>
+                <select id="b2b-cut-select" class="form-select">
+                  <option value="curry">কারি কাট (৮-১২ পিস)</option>
+                  <option value="biryani" selected>বিরিয়ানি কাট (৪ পিস রোস্ট সাইজ)</option>
+                  <option value="skinless">স্কিনলেস স্ট্যান্ডার্ড কাট</option>
+                  <option value="boneless">বোনলেস কিউব / ডাইস</option>
+                  <option value="whole">গোটা মুরগি ড্রেসড</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="b2b-volume-input" class="form-label" data-i18n="b2b.vol_label">প্রতিদিনের সম্ভাব্য পরিমাণ (কেজি):</label>
+                <input type="number" id="b2b-volume-input" class="form-input tabular-numbers" value="30" min="10" max="500" step="5" required />
+              </div>
+
+              <div class="form-group">
+                <label for="b2b-slot-select" class="form-label" data-i18n="b2b.slot_label">কিচেন রিসিভিং স্লট:</label>
+                <select id="b2b-slot-select" class="form-select">
+                  <option value="restaurant-early">ভোর ৫:০০ - সকাল ৭:০০ (Early Commercial Slot)</option>
+                  <option value="morning">সকাল ৭:০০ - ১০:০০</option>
+                  <option value="afternoon">দুপুর ১২:০০ - ৩:০০</option>
+                </select>
+              </div>
+
+              <!-- Live Discount & Price Summary Block -->
+              <div class="b2b-summary-card">
+                <div class="b2b-summary-row">
+                  <span data-i18n="b2b.discount_notice">প্রযোজ্য ছাড়:</span>
+                  <strong id="b2b-discount-badge" class="tabular-numbers">৮% হোলসেল ডিসকাউন্ট</strong>
+                </div>
+                <div class="b2b-summary-row">
+                  <span data-i18n="b2b.est_price">আনুমানিক বাল্ক রেট:</span>
+                  <span id="b2b-est-total" class="price-main tabular-numbers">৳ ৯,১১০</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="b2b-rest-name" class="form-label" data-i18n="b2b.name_label">রেস্টুরেন্ট / ব্যবসা প্রতিষ্ঠানের নাম:</label>
+                <input type="text" id="b2b-rest-name" class="form-input" placeholder="যেমন: সুলতান'স ডাইন / ধানমন্ডি কিচেন" required />
+              </div>
+
+              <div class="form-group">
+                <label for="b2b-phone" class="form-label" data-i18n="b2b.phone_label">ম্যানেজার / পারচেজ ফোন নম্বর:</label>
+                <input type="tel" id="b2b-phone" class="form-input tabular-numbers" placeholder="017XXXXXXXX" required />
+              </div>
+
+              <button type="submit" id="btn-whatsapp-b2b" class="btn-whatsapp-quote">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.64c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.32-.02-.45s-.56-1.35-.77-1.85c-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.18-.48-.3"/></svg>
+                <span data-i18n="b2b.submit_btn">হোয়াটসঅ্যাপে বাল্ক কোটেশন পাঠান</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       4. CART DRAWER & CHECKOUT ENGINE
+       ========================================================================= -->
+  <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
+  
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart Drawer" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="drawer-header">
+      <h3 class="drawer-title" data-i18n="drawer.heading">আপনার অর্ডারের ঝুড়ি</h3>
+      <button id="drawer-close-btn" class="drawer-close-btn" type="button" aria-label="Close Cart Drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- Empty Cart State -->
+      <div id="empty-cart-state" class="empty-cart-state">
+        <div class="empty-cart-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        </div>
+        <p data-i18n="drawer.empty">আপনার ঝুড়িতে এখনো কোনো পণ্য যোগ করা হয়নি।</p>
+        <button id="drawer-empty-browse-btn" class="btn-primary" type="button" data-i18n="drawer.empty_action">তাজা মুরগি দেখুন</button>
+      </div>
+
+      <!-- Cart Items List Container -->
+      <div id="cart-items-list" class="cart-items-list">
+        <!-- Rendered dynamically via cart.js & main.js -->
+      </div>
+    </div>
+
+    <!-- Drawer Checkout Footer -->
+    <div id="drawer-checkout-footer" class="drawer-footer" style="display: none;">
+      <div class="bill-summary">
+        <div class="bill-row">
+          <span data-i18n="drawer.subtotal">পণ্যের মূল্য:</span>
+          <strong id="drawer-subtotal" class="tabular-numbers">০ ৳</strong>
+        </div>
+        <div class="bill-row">
+          <span data-i18n="drawer.delivery_fee">ডেলিভারি চার্জ:</span>
+          <span id="drawer-delivery-fee" class="tabular-numbers">৪০ ৳</span>
+        </div>
+        <div class="bill-row total-row">
+          <span data-i18n="drawer.total">সর্বমোট প্রদেয়:</span>
+          <span id="drawer-grand-total" class="total-amount tabular-numbers">৪০ ৳</span>
+        </div>
+      </div>
+
+      <!-- Checkout Form Fields -->
+      <form id="checkout-form" class="checkout-inputs-block">
+        <div class="form-group">
+          <label for="checkout-name" class="form-label" data-i18n="drawer.name_label">আপনার নাম:</label>
+          <input type="text" id="checkout-name" class="form-input" placeholder="যেমন: মো: তানভীর আহমেদ" required />
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-phone" class="form-label" data-i18n="drawer.phone_label">মোবাইল নম্বর (১১ ডিজিট):</label>
+          <input type="tel" id="checkout-phone" class="form-input tabular-numbers" placeholder="017XXXXXXXX" required />
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-address" class="form-label" data-i18n="drawer.address_label">সম্পূর্ণ ঠিকানা (বাসা/রোড/ফ্ল্যাট):</label>
+          <input type="text" id="checkout-address" class="form-input" placeholder="বাসা # ১২, রোড # ৪, ব্লক # সি" required />
+        </div>
+
+        <!-- Payment Mode Toggle -->
+        <div class="form-group">
+          <label class="form-label" data-i18n="drawer.payment_method">পেমেন্ট মাধ্যম:</label>
+          <div class="payment-method-options" role="radiogroup">
+            <button type="button" class="payment-tile active" data-method="cod" data-i18n="drawer.cod">ক্যাশ অন ডেলিভারি</button>
+            <button type="button" class="payment-tile" data-method="bkash" data-i18n="drawer.bkash">বিকাশ / নগদ</button>
+          </div>
+        </div>
+
+        <button type="submit" id="btn-confirm-order" class="btn-primary" style="width: 100%;">
+          <span data-i18n="drawer.place_order">অর্ডার নিশ্চিত করুন</span>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       5. COMPREHENSIVE PRIVACY POLICY MODAL (BD Legal Compliance)
+       ========================================================================= -->
+  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="privacy-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="privacy-modal-title" data-i18n="privacy.modal_title">গ্রাহকের তথ্যের গোপনীয়তা ও নিরাপত্তা নীতি</h3>
+        <button id="privacy-close-btn" class="drawer-close-btn" type="button" aria-label="Close Privacy Modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p data-i18n="privacy.intro" style="margin-bottom: 16px; font-weight: 500;">তোমার মুরগি স্টোর (Tomar Murgi Store) গ্রাহকের ব্যক্তিগত তথ্যের মর্যাদা ও নিরাপত্তার প্রতি সর্বোচ্চ দায়বদ্ধ। বাংলাদেশ ডিজিটাল নিরাপত্তা ও ভোক্তা অধিকার বিধিমালা অনুসারে আমাদের নীতিমালা নিম্নরূপ:</p>
+        
+        <div class="policy-block">
+          <h4 data-i18n="privacy.p1_title">১. তথ্য সংগ্রহ ও ব্যবহার</h4>
+          <p data-i18n="privacy.p1_body">অর্ডার প্রক্রিয়াকরণ এবং সময়মতো তাজা ডেলিভারি নিশ্চিত করার স্বার্থে কেবল গ্রাহকের নাম, মোবাইল নম্বর এবং ঠিকানা সংগ্রহ করা হয়। রেস্টুরেন্ট গ্রাহকদের ক্ষেত্রে প্রতিষ্ঠানের নাম যুক্ত হয়।</p>
+        </div>
+
+        <div class="policy-block">
+          <h4 data-i18n="privacy.p2_title">২. তথ্যের শতভাগ গোপনীয়তা</h4>
+          <p data-i18n="privacy.p2_body">আমরা কোনো অবস্থাতেই গ্রাহকের সংগৃহীত ফোন নম্বর বা তথ্য কোনো তৃতীয় পক্ষ কিংবা বিজ্ঞাপনী এজেন্সির কাছে বিক্রি, ভাড়া বা শেয়ার করি না।</p>
+        </div>
+
+        <div class="policy-block">
+          <h4 data-i18n="privacy.p3_title">৩. পেমেন্ট তথ্য সংরক্ষণ নিষেধাজ্ঞা</h4>
+          <p data-i18n="privacy.p3_body">বিকাশ, নগদ কিংবা ডেবিট/ক্রেডিট কার্ডের কোনো ধরনের পিন (PIN) বা ওটিপি (OTP) আমাদের সার্ভারে জমা রাখা হয় না। গ্রাহক সুরক্ষিত পেমেন্ট গেটওয়ের মাধ্যমে পরিশোধ করেন।</p>
+        </div>
+
+        <div class="policy-block">
+          <h4 data-i18n="privacy.p4_title">৪. স্বাস্থ্য ও রিটার্ন গ্যারান্টি</h4>
+          <p data-i18n="privacy.p4_body">ডেলিভারি ম্যানের উপস্থিতিতে পণ্য দেখে বুঝে নেওয়ার সুযোগ রয়েছে। ওজনে গরমিল কিংবা কাটিংয়ে কোনো সমস্যা থাকলে তাৎক্ষণিক ফেরত ও রিফান্ড প্রদান করা হয়।</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="privacy-agree-btn" class="btn-primary" type="button" data-i18n="privacy.close_btn">বুঝেছি ও একমত</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Success Confirmation Modal -->
+  <div id="order-success-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" style="max-width: 480px; text-align: center;">
+      <div class="modal-body" style="padding-top: 36px;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: #DDF6EE; color: #0F7F63; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 data-i18n="drawer.order_success" style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">অর্ডার সফলভাবে গৃহীত হয়েছে!</h3>
+        <p style="font-size: 14px; color: var(--color-slate-500); margin-bottom: 16px;">
+          <span data-i18n="drawer.order_id">অর্ডার ট্র্যাকিং আইডি:</span> <strong id="success-order-id" class="tabular-numbers" style="color: var(--color-freshness-primary-600);">TMS-89241</strong>
+        </p>
+        <p data-i18n="drawer.order_msg" style="font-size: 13px; color: var(--color-slate-600); margin-bottom: 24px;">আমাদের প্রতিনিধি অবিলম্বে কল করে আপনার কাটিং ও ওজন কনফার্ম করবেন।</p>
+        <button id="btn-success-dismiss" class="btn-primary" type="button" style="width: 100%;">ঠিক আছে</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       6. GLOBAL FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 data-i18n="brand.name">তোমার মুরগি স্টোর</h3>
+          <p data-i18n="footer.about">তোমার মুরগি স্টোর — ঢাকা শহরের প্রথম স্বাস্থ্যসম্মত ও ক্লিনিক্যাল এয়ার-চিলড পোল্ট্রি ডেলিভারি সেবা।</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.quick_links">প্রয়োজনীয় লিংক</h4>
+          <ul class="footer-links">
+            <li><a href="#retail-catalog" data-i18n="nav.catalog">তাজা মুরগির বাজার</a></li>
+            <li><a href="#b2b-wholesale" data-i18n="nav.b2b">হোলসেল সাপ্লাই</a></li>
+            <li><a href="#delivery-slots-section" data-i18n="nav.slots">ডেলিভারি সময়</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.legal">আইনি ও নীতিমালা</h4>
+          <ul class="footer-links">
+            <li><a href="#" id="footer-privacy-trigger" data-i18n="nav.privacy">গোপনীয়তা নীতিমালা</a></li>
+            <li><a href="#retail-catalog" data-i18n="nav.hygiene">হাইজিং গ্যারান্টি</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© ২০২৬ তোমার মুরগি স্টোর (Tomar Murgi Store)। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>Dhaka, Bangladesh | Cold-Chain Logistics Hub</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Bundle Entrypoint -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* ==============================================================================
+   TOMAR MURGI STORE (তোমার মুরগি স্টোর)
+   CORE DESIGN TOKENS & SYSTEM CONTRACT (Source of Truth)
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+
+:root {
+  /* PRIMARY: Fresh Cut (Rust Red) */
+  --color-freshness-primary-50: #FDF3F1;
+  --color-freshness-primary-100: #FBE4E0;
+  --color-freshness-primary-200: #F6C6BE;
+  --color-freshness-primary-300: #EE9C90;
+  --color-freshness-primary-400: #E2685A;
+  --color-freshness-primary-500: #D2432F;
+  --color-freshness-primary-600: #B83222; /* Default Action CTA */
+  --color-freshness-primary-700: #972A1D; /* Hover */
+  --color-freshness-primary-800: #7C261C; /* Pressed */
+  --color-freshness-primary-900: #67241C;
+  --color-freshness-primary: var(--color-freshness-primary-600);
+  --color-freshness-primary-hover: var(--color-freshness-primary-700);
+  --color-freshness-primary-pressed: var(--color-freshness-primary-800);
+  --color-freshness-primary-subtle: var(--color-freshness-primary-50);
+
+  /* ACCENT: Harvest (Amber) */
+  --color-harvest-50: #FFF8EB;
+  --color-harvest-100: #FEEBC8;
+  --color-harvest-200: #FDD58B;
+  --color-harvest-300: #FBB94D;
+  --color-harvest-400: #F89E24;
+  --color-harvest-500: #E8820C;
+  --color-harvest-600: #CC6309;
+  --color-harvest-700: #A94A0B;
+  --color-harvest-800: #873B10;
+  --color-harvest-900: #6F3210;
+  --color-harvest: var(--color-harvest-500);
+
+  /* SECONDARY: Farm Sage (Organic Green) */
+  --color-sage-50: #F4F7F3;
+  --color-sage-100: #E6EDE3;
+  --color-sage-200: #CEDBC8;
+  --color-sage-300: #AEC3A6;
+  --color-sage-400: #86A47C;
+  --color-sage-500: #678A5E;
+  --color-sage-600: #4F6E48;
+  --color-sage-700: #3F573B;
+  --color-sage-800: #354732;
+  --color-sage-900: #2D3B2B;
+  --color-sage: var(--color-sage-500);
+
+  /* NEUTRALS: Canvas & Slate */
+  --color-canvas: #FBFAF7; /* Page Background */
+  --color-surface: #FFFFFF; /* Cards & Panels */
+  --color-surface-sunken: #F6F7F9;
+  --color-slate-50: #F6F7F9;
+  --color-slate-100: #EEF0F3;
+  --color-slate-200: #E1E4E9; /* Default Borders */
+  --color-slate-300: #CBD0D8;
+  --color-slate-400: #9AA2AF; /* Placeholders */
+  --color-slate-500: #687482; /* Secondary Copy */
+  --color-slate-600: #4D5563;
+  --color-slate-700: #394050;
+  --color-slate-800: #232834;
+  --color-slate-900: #141821; /* Primary Text */
+  --color-slate-950: #0B0E14;
+
+  --color-text-primary: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-text-disabled: var(--color-slate-400);
+  --color-text-on-primary: #FFFFFF;
+  --color-border-default: var(--color-slate-200);
+  --color-border-strong: var(--color-slate-300);
+  --color-focus-ring: #2563A8;
+
+  /* SEMANTICS & BADGES */
+  --color-state-success: #2F7D4F;
+  --color-state-success-bg: #E7F5EC;
+  --color-state-warning: #A9650A;
+  --color-state-warning-bg: #FEF3D9;
+  --color-state-error: #B42318;
+  --color-state-error-bg: #FEE4E2;
+  --color-state-out-of-stock: #687482;
+  --color-state-out-of-stock-bg: #EEF0F3;
+
+  --color-badge-fresh: #0F7F63;
+  --color-badge-fresh-bg: #DDF6EE;
+  --color-badge-organic: var(--color-sage-700);
+  --color-badge-organic-bg: var(--color-sage-100);
+  --color-badge-deshi: var(--color-harvest-800);
+  --color-badge-deshi-bg: var(--color-harvest-100);
+  --color-badge-halal: #0F7F63;
+  --color-badge-halal-bg: #DDF6EE;
+
+  /* SPACING & RADII */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem;  /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem;    /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem;  /* 24px */
+  --space-8: 2rem;    /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem;   /* 48px */
+  --space-16: 4rem;   /* 64px */
+  --space-tap-target: 2.75rem; /* 44px minimum touch target */
+
+  --radius-micro: 2px;
+  --radius-tag: 4px;
+  --radius-control: 8px;
+  --radius-card-sm: 12px;
+  --radius-card: 16px;
+  --radius-sheet: 24px;
+  --radius-pill: 9999px;
+
+  /* SHADOWS (Slate-tinted, never pitch black) */
+  --elevation-1: 0 1px 2px rgba(20, 24, 33, 0.06), 0 1px 1px rgba(20, 24, 33, 0.04);
+  --elevation-2: 0 2px 6px rgba(20, 24, 33, 0.07), 0 1px 3px rgba(20, 24, 33, 0.05);
+  --elevation-3: 0 8px 20px rgba(20, 24, 33, 0.09), 0 3px 6px rgba(20, 24, 33, 0.05);
+  --elevation-4: 0 20px 48px rgba(20, 24, 33, 0.16), 0 8px 16px rgba(20, 24, 33, 0.08);
+  --elevation-focus: 0 0 0 3px rgba(37, 99, 168, 0.35);
+
+  /* MOTION CURVES & DURATIONS (Emil Kowalski Philosophy) */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-snappy: cubic-bezier(0.3, 0, 0, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-instant: 100ms;
+  --duration-snappy: 120ms;
+  --duration-quick: 150ms;
+  --duration-standard: 200ms;
+  --duration-relaxed: 300ms;
+  --duration-complex: 400ms;
+  --duration-cinematic: 500ms;
+
+  /* TYPOGRAPHY TOKENS */
+  --font-latin: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-bengali: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+}
+
+/* ==============================================================================
+   TYPOGRAPHY RULES & DUAL-LANGUAGE ADAPTATION
+   ============================================================================== */
+
+html {
+  font-family: var(--font-latin);
+  color: var(--color-text-primary);
+  background-color: var(--color-canvas);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bengali Specific Language Rules */
+:lang(bn) {
+  font-family: var(--font-bengali), var(--font-latin);
+  letter-spacing: 0 !important; /* Strictly no negative tracking on Bengali */
+  line-height: 1.62; /* English 1.5 + 0.12 to prevent diacritic clipping */
+  font-size-adjust: 0.52;
+}
+
+:lang(bn) body {
+  font-size: 15px; /* Minimum body text >= 14px */
+}
+
+/* Tabular Numbers Contract */
+.tabular-numbers,
+[data-num],
+.price-display,
+.weight-display,
+.slot-time,
+.badge-count {
+  font-family: var(--font-latin);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' on;
+  font-weight: 600;
+}
+
+:lang(bn) .price-display,
+:lang(bn) .weight-display,
+:lang(bn) .slot-time {
+  font-family: var(--font-bengali), var(--font-latin);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reduced Motion Override Contract */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+
+  .slot-pulse,
+  .badge-bump,
+  .floating-badge {
+    animation: none !important;
+    transition: opacity var(--duration-quick) ease-out !important;
+  }
+}

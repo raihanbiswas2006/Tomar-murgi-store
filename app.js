@@ -307,9 +307,12 @@
       'notfound.desc': 'আপনি যে লিংকটি অনুসন্ধান করছেন তা পরিবর্তিত হয়েছে অথবা অস্তিত্ব নেই।',
       'notfound.btn': 'প্রধান পাতায় ফিরে যান',
       'drawer.heading': 'আপনার অর্ডারের ঝুড়ি',
+      'drawer.items_section': 'নির্বাচিত পণ্যসমূহ:',
+      'drawer.bill_section': 'মূল্য ও ডেলিভারি বিবরণী:',
+      'drawer.delivery_section': 'ডেলিভারি ও পেমেন্ট তথ্য:',
       'drawer.empty': 'আপনার ঝুড়িতে এখনো কোনো পণ্য যোগ করা হয়নি।',
       'drawer.empty_action': 'তাজা মুরগি দেখুন',
-      'drawer.subtotal': 'পণ্যের মূল্য:',
+      'drawer.subtotal': 'পণ্যের মোট মূল্য:',
       'drawer.delivery_fee': 'ডেলিভারি চার্জ:',
       'drawer.total': 'সর্বমোট প্রদেয়:',
       'drawer.name_label': 'আপনার নাম:',
@@ -322,6 +325,9 @@
       'drawer.order_success': 'অর্ডার সফলভাবে গৃহীত হয়েছে!',
       'drawer.order_id': 'অর্ডার ট্র্যাকিং আইডি:',
       'drawer.order_msg': 'আমাদের প্রতিনিধি অবিলম্বে কল করে আপনার কাটিং ও ওজন কনফার্ম করবেন।',
+      'placeholder.name': 'যেমন: মো: তানভীর আহমেদ',
+      'placeholder.phone': '017XXXXXXXX',
+      'placeholder.address': 'বাসা # ১২, রোড # ৪, ব্লক # সি, বনানী',
       'privacy.modal_title': 'গ্রাহকের তথ্যের গোপনীয়তা ও নিরাপত্তা নীতি',
       'privacy.intro': 'তোমার মুরগি স্টোর (Tomar Murgi Store) গ্রাহকের ব্যক্তিগত তথ্যের মর্যাদা ও নিরাপত্তার প্রতি সর্বোচ্চ দায়বদ্ধ। বাংলাদেশ ডিজিটাল নিরাপত্তা ও ভোক্তা অধিকার বিধিমালা অনুসারে আমাদের নীতিমালা নিম্নরূপ:',
       'privacy.p1_title': '১. তথ্য সংগ্রহ ও ব্যবহার',
@@ -419,6 +425,9 @@
       'notfound.desc': 'The link you are looking for has been moved or does not exist.',
       'notfound.btn': 'Return to Home',
       'drawer.heading': 'Your Shopping Cart',
+      'drawer.items_section': 'Selected Products:',
+      'drawer.bill_section': 'Bill & Delivery Breakdown:',
+      'drawer.delivery_section': 'Delivery & Payment Information:',
       'drawer.empty': 'Your cart is currently empty.',
       'drawer.empty_action': 'Browse Fresh Poultry',
       'drawer.subtotal': 'Items Total:',
@@ -434,6 +443,9 @@
       'drawer.order_success': 'Order Placed Successfully!',
       'drawer.order_id': 'Order Tracking ID:',
       'drawer.order_msg': 'Our customer agent will call you shortly to confirm your custom cut and exact weight.',
+      'placeholder.name': 'e.g. Tanvir Ahmed',
+      'placeholder.phone': '017XXXXXXXX',
+      'placeholder.address': 'House # 12, Road # 4, Block # C, Banani',
       'privacy.modal_title': 'Customer Privacy & Data Protection Policy',
       'privacy.intro': 'Tomar Murgi Store is committed to upholding the privacy and security of our customers in accordance with Bangladesh digital commerce regulations.',
       'privacy.p1_title': '1. Information Collection & Usage',
@@ -890,7 +902,9 @@
 
   function renderCart() {
     const headerCount = document.getElementById('header-cart-count');
+    const drawerBadge = document.getElementById('drawer-items-count-badge');
     const emptyState = document.getElementById('empty-cart-state');
+    const cartWrapper = document.getElementById('cart-content-wrapper');
     const itemsList = document.getElementById('cart-items-list');
     const footer = document.getElementById('drawer-checkout-footer');
 
@@ -900,16 +914,24 @@
       headerCount.textContent = state.lang === 'bn' ? toBanglaNum(totalItemCount) : totalItemCount;
     }
 
+    if (drawerBadge) {
+      drawerBadge.textContent = state.lang === 'bn'
+        ? `${toBanglaNum(totalItemCount)} টি`
+        : `${totalItemCount} items`;
+    }
+
     if (!itemsList || !emptyState || !footer) return;
 
     if (state.cart.length === 0) {
       emptyState.style.display = 'block';
+      if (cartWrapper) cartWrapper.style.display = 'none';
       itemsList.innerHTML = '';
       footer.style.display = 'none';
       return;
     }
 
     emptyState.style.display = 'none';
+    if (cartWrapper) cartWrapper.style.display = 'block';
     footer.style.display = 'block';
 
     const isBn = state.lang === 'bn';
@@ -924,7 +946,7 @@
         <div class="cart-item-card" data-cart-index="${index}">
           <img src="${item.image}" alt="${name}" class="cart-item-thumb" />
           <div class="cart-item-info">
-            <div class="cart-item-title">${name}</div>
+            <div class="cart-item-title" title="${name}">${name}</div>
             <div class="cart-item-cut-badge">${cutName}</div>
             <div class="cart-item-footer">
               <div class="weight-stepper" style="border-radius: var(--radius-control);">
@@ -950,10 +972,14 @@
     const subtotalEl = document.getElementById('drawer-subtotal');
     const deliveryFeeEl = document.getElementById('drawer-delivery-fee');
     const grandTotalEl = document.getElementById('drawer-grand-total');
+    const stickyTotalEl = document.getElementById('drawer-sticky-total');
+
+    const formattedGrandTotal = formatPrice(grandTotal, state.lang);
 
     if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal, state.lang);
     if (deliveryFeeEl) deliveryFeeEl.textContent = formatPrice(deliveryFee, state.lang);
-    if (grandTotalEl) grandTotalEl.textContent = formatPrice(grandTotal, state.lang);
+    if (grandTotalEl) grandTotalEl.textContent = formattedGrandTotal;
+    if (stickyTotalEl) stickyTotalEl.textContent = formattedGrandTotal;
 
     // Bind item actions inside cart
     itemsList.querySelectorAll('.cart-qty-minus').forEach(btn => {
@@ -1243,6 +1269,15 @@
       }
     });
 
+    // Update all elements with data-i18n-placeholder
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const translation = t(key);
+      if (translation) {
+        el.placeholder = translation;
+      }
+    });
+
     // Re-render Dynamic components
     renderProducts();
     renderDeliverySlots();
@@ -1380,6 +1415,18 @@
 
     // Checkout Form Submit
     const checkoutForm = document.getElementById('checkout-form');
+    const confirmTriggerBtn = document.getElementById('btn-confirm-order-trigger');
+
+    if (confirmTriggerBtn && checkoutForm) {
+      confirmTriggerBtn.addEventListener('click', () => {
+        if (checkoutForm.requestSubmit) {
+          checkoutForm.requestSubmit();
+        } else {
+          checkoutForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+        }
+      });
+    }
+
     if (checkoutForm) {
       checkoutForm.addEventListener('submit', (e) => {
         e.preventDefault();

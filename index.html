@@ -558,7 +558,10 @@
   
   <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart Drawer" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="drawer-header">
-      <h3 class="drawer-title" data-i18n="drawer.heading">আপনার অর্ডারের ঝুড়ি</h3>
+      <div class="drawer-title-wrap">
+        <h3 class="drawer-title" data-i18n="drawer.heading">আপনার অর্ডারের ঝুড়ি</h3>
+        <span id="drawer-items-count-badge" class="drawer-item-count-badge tabular-numbers">০</span>
+      </div>
       <button id="drawer-close-btn" class="drawer-close-btn" type="button" aria-label="Close Cart Drawer">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -574,59 +577,73 @@
         <button id="drawer-empty-browse-btn" class="btn-primary" type="button" data-i18n="drawer.empty_action">তাজা মুরগি দেখুন</button>
       </div>
 
-      <!-- Cart Items List Container -->
-      <div id="cart-items-list" class="cart-items-list">
-        <!-- Rendered dynamically via app.js -->
-      </div>
-    </div>
-
-    <!-- Drawer Checkout Footer -->
-    <div id="drawer-checkout-footer" class="drawer-footer" style="display: none;">
-      <div class="bill-summary">
-        <div class="bill-row">
-          <span data-i18n="drawer.subtotal">পণ্যের মূল্য:</span>
-          <strong id="drawer-subtotal" class="tabular-numbers">০ ৳</strong>
-        </div>
-        <div class="bill-row">
-          <span data-i18n="drawer.delivery_fee">ডেলিভারি চার্জ:</span>
-          <span id="drawer-delivery-fee" class="tabular-numbers">৪০ ৳</span>
-        </div>
-        <div class="bill-row total-row">
-          <span data-i18n="drawer.total">সর্বমোট প্রদেয়:</span>
-          <span id="drawer-grand-total" class="total-amount tabular-numbers">৪০ ৳</span>
-        </div>
-      </div>
-
-      <!-- Checkout Form Fields -->
-      <form id="checkout-form" class="checkout-inputs-block">
-        <div class="form-group">
-          <label for="checkout-name" class="form-label" data-i18n="drawer.name_label">আপনার নাম:</label>
-          <input type="text" id="checkout-name" class="form-input" placeholder="যেমন: মো: তানভীর আহমেদ" required />
+      <!-- Scrollable Cart Content Wrapper -->
+      <div id="cart-content-wrapper" style="display: none;">
+        <!-- 1. Cart Items List -->
+        <div class="drawer-section-title" data-i18n="drawer.items_section">নির্বাচিত পণ্যসমূহ:</div>
+        <div id="cart-items-list" class="cart-items-list">
+          <!-- Rendered dynamically via app.js -->
         </div>
 
-        <div class="form-group">
-          <label for="checkout-phone" class="form-label" data-i18n="drawer.phone_label">মোবাইল নম্বর (১১ ডিজিট):</label>
-          <input type="tel" id="checkout-phone" class="form-input tabular-numbers" placeholder="017XXXXXXXX" required />
-        </div>
-
-        <div class="form-group">
-          <label for="checkout-address" class="form-label" data-i18n="drawer.address_label">সম্পূর্ণ ঠিকানা (বাসা/রোড/ফ্ল্যাট):</label>
-          <input type="text" id="checkout-address" class="form-input" placeholder="বাসা # ১২, রোড # ৪, ব্লক # সি" required />
-        </div>
-
-        <!-- Payment Mode Toggle -->
-        <div class="form-group">
-          <label class="form-label" data-i18n="drawer.payment_method">পেমেন্ট মাধ্যম:</label>
-          <div class="payment-method-options" id="payment-method-options" role="radiogroup">
-            <button type="button" class="payment-tile active" data-method="cod" data-i18n="drawer.cod">ক্যাশ অন ডেলিভারি</button>
-            <button type="button" class="payment-tile" data-method="bkash" data-i18n="drawer.bkash">বিকাশ / নগদ</button>
+        <!-- 2. Bill Breakdown Card -->
+        <div class="drawer-section-title" style="margin-top: 20px;" data-i18n="drawer.bill_section">মূল্য ও ডেলিভারি বিবরণী:</div>
+        <div class="drawer-bill-card">
+          <div class="bill-row">
+            <span data-i18n="drawer.subtotal">পণ্যের মোট মূল্য:</span>
+            <strong id="drawer-subtotal" class="tabular-numbers">০ ৳</strong>
+          </div>
+          <div class="bill-row">
+            <span data-i18n="drawer.delivery_fee">ডেলিভারি চার্জ:</span>
+            <span id="drawer-delivery-fee" class="tabular-numbers">৪০ ৳</span>
+          </div>
+          <div class="bill-row total-row">
+            <span data-i18n="drawer.total">সর্বমোট প্রদেয়:</span>
+            <span id="drawer-grand-total" class="total-amount tabular-numbers">৪০ ৳</span>
           </div>
         </div>
 
-        <button type="submit" id="btn-confirm-order" class="btn-primary" style="width: 100%;">
+        <!-- 3. Delivery Details Form -->
+        <div class="drawer-section-title" style="margin-top: 20px;" data-i18n="drawer.delivery_section">ডেলিভারি ও পেমেন্ট তথ্য:</div>
+        <form id="checkout-form" class="checkout-inputs-block">
+          <div class="form-group">
+            <label for="checkout-name" class="form-label" data-i18n="drawer.name_label">আপনার নাম:</label>
+            <input type="text" id="checkout-name" class="form-input" data-i18n-placeholder="placeholder.name" placeholder="যেমন: মো: তানভীর আহমেদ" required />
+          </div>
+
+          <div class="form-group">
+            <label for="checkout-phone" class="form-label" data-i18n="drawer.phone_label">মোবাইল নম্বর (১১ ডিজিট):</label>
+            <input type="tel" id="checkout-phone" class="form-input tabular-numbers" data-i18n-placeholder="placeholder.phone" placeholder="017XXXXXXXX" required />
+          </div>
+
+          <div class="form-group">
+            <label for="checkout-address" class="form-label" data-i18n="drawer.address_label">সম্পূর্ণ ঠিকানা (বাসা/রোড/ফ্ল্যাট):</label>
+            <input type="text" id="checkout-address" class="form-input" data-i18n-placeholder="placeholder.address" placeholder="বাসা # ১২, রোড # ৪, ব্লক # সি" required />
+          </div>
+
+          <!-- Payment Mode Toggle -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" data-i18n="drawer.payment_method">পেমেন্ট মাধ্যম:</label>
+            <div class="payment-method-options" id="payment-method-options" role="radiogroup">
+              <button type="button" class="payment-tile active" data-method="cod" data-i18n="drawer.cod">ক্যাশ অন ডেলিভারি</button>
+              <button type="button" class="payment-tile" data-method="bkash" data-i18n="drawer.bkash">বিকাশ / নগদ</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sticky Drawer Footer Action Bar -->
+    <div id="drawer-checkout-footer" class="drawer-footer" style="display: none;">
+      <div class="drawer-footer-inner">
+        <div class="drawer-footer-total">
+          <span class="drawer-footer-total-label" data-i18n="drawer.total">সর্বমোট প্রদেয়</span>
+          <span id="drawer-sticky-total" class="drawer-footer-total-val tabular-numbers">৪০ ৳</span>
+        </div>
+        <button type="button" id="btn-confirm-order-trigger" class="drawer-submit-btn">
           <span data-i18n="drawer.place_order">অর্ডার নিশ্চিত করুন</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
-      </form>
+      </div>
     </div>
   </aside>
 

@@ -4,6 +4,7 @@
   "description": "Tomar Murgi Store (তোমার মুরগি স্টোর) — Production Poultry Retail & Commercial B2B Web Platform",
   "main": "app.js",
   "scripts": {
+    "build": "echo 'Production static build ready'",
     "start": "npx serve ."
   },
   "keywords": [

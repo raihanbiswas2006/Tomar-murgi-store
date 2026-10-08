@@ -236,7 +236,7 @@
       'topbar.hotline': 'হটলাইন ও হোয়াটসঅ্যাপ:',
       'topbar.mode.retail': 'বাসার বাজার (Retail)',
       'topbar.mode.b2b': 'রেস্টুরেন্ট সাপ্লাই (B2B)',
-      'nav.catalog': 'তাজা মুরগির বাজার',
+      'nav.catalog': 'তাজা মুরগি',
       'nav.b2b': 'হোলসেল সাপ্লাই',
       'nav.hygiene': 'হাইজিং ও মান',
       'nav.tracking': 'অর্ডার ট্র্যাকিং',
@@ -352,11 +352,11 @@
       'topbar.area_label': 'Delivery Hub:',
       'topbar.hours': '6:00 AM - 10:00 PM',
       'topbar.hotline': 'Hotline & WhatsApp:',
-      'topbar.mode.retail': 'Home Grocery (Retail)',
-      'topbar.mode.b2b': 'Restaurant Supply (B2B)',
-      'nav.catalog': 'Fresh Poultry Market',
-      'nav.b2b': 'Wholesale Supply',
-      'nav.hygiene': 'Hygiene & Standards',
+      'topbar.mode.retail': 'Home (Retail)',
+      'topbar.mode.b2b': 'Restaurant (B2B)',
+      'nav.catalog': 'Fresh Poultry',
+      'nav.b2b': 'Wholesale (B2B)',
+      'nav.hygiene': 'Hygiene Standards',
       'nav.tracking': 'Order Tracking',
       'nav.slots': 'Delivery Slots',
       'nav.privacy': 'Privacy Policy',
@@ -371,7 +371,7 @@
       'hero.stat.preservative': '0% Preservatives',
       'hero.stat.preservative_sub': '100% chemical & antibiotic-safe',
       'hero.stat.partners': '1,200+ Kitchen Partners',
-      'hero.stat.partners_sub': 'Trusted daily poultry supplier',
+      'hero.stat.partners_sub': 'Trusted daily poultry supply',
       'trust.halal.title': '100% Halal Slaughtered',
       'trust.halal.desc': 'Strict manual halal cut according to Islamic principles.',
       'trust.dressing.title': 'Clinical Dressing & 0% Water',
@@ -464,6 +464,76 @@
       'card.cut_label': 'Select Cut Style:',
       'card.add_btn': 'Add to Cart'
     }
+  };
+
+  const AREA_OPTIONS = {
+    bn: [
+      { value: 'gulshan', label: 'গুলশান (১ ও ২) - ৳৪০' },
+      { value: 'banani', label: 'বনানী ও ডিওএইচএস - ৳৪০' },
+      { value: 'dhanmondi', label: 'ধানমন্ডি ও জিগাতলা - ৳৪০' },
+      { value: 'uttara', label: 'উত্তরা (সেক্টর ১-১৮) - ৳৫০' },
+      { value: 'mirpur', label: 'মিরপুর (১-১৪) - ৳৪৫' },
+      { value: 'mohammadpur', label: 'মোহাম্মদপুর ও আদাবর - ৳৪০' },
+      { value: 'bashundhara', label: 'বসুন্ধরা আ/এ - ৳৪৫' },
+      { value: 'badda', label: 'বাড্ডা ও রামপুরা - ৳৪৫' },
+      { value: 'motijheel', label: 'মতিঝিল ও পল্টন - ৳৫০' }
+    ],
+    en: [
+      { value: 'gulshan', label: 'Gulshan (1 & 2) - ৳40' },
+      { value: 'banani', label: 'Banani & DOHS - ৳40' },
+      { value: 'dhanmondi', label: 'Dhanmondi & Jigatola - ৳40' },
+      { value: 'uttara', label: 'Uttara (Sec 1-18) - ৳50' },
+      { value: 'mirpur', label: 'Mirpur (1-14) - ৳45' },
+      { value: 'mohammadpur', label: 'Mohammadpur & Adabor - ৳40' },
+      { value: 'bashundhara', label: 'Bashundhara R/A - ৳45' },
+      { value: 'badda', label: 'Badda & Rampura - ৳45' },
+      { value: 'motijheel', label: 'Motijheel & Paltan - ৳50' }
+    ]
+  };
+
+  const B2B_VARIETY_OPTIONS = {
+    bn: [
+      { value: 'prod-broiler', label: 'তাজা ফার্ম ব্রয়লার মুরগি (লাইভ)' },
+      { value: 'prod-sonali', label: 'প্রিমিয়াম সোনালী মুরগি (ক্লাসিক)' },
+      { value: 'prod-deshi', label: 'খাঁটি দেশি মুরগি (ফ্রি-রেঞ্জ)' },
+      { value: 'prod-boneless-breast', label: 'তাজা বোনলেস চিকেন ব্রেস্ট ফিলে' }
+    ],
+    en: [
+      { value: 'prod-broiler', label: 'Fresh Farm Broiler (Live)' },
+      { value: 'prod-sonali', label: 'Premium Sonali Chicken (Classic)' },
+      { value: 'prod-deshi', label: 'Authentic Deshi Chicken (Free-Range)' },
+      { value: 'prod-boneless-breast', label: 'Fresh Boneless Chicken Breast' }
+    ]
+  };
+
+  const B2B_CUT_OPTIONS = {
+    bn: [
+      { value: 'curry', label: 'কারি কাট (৮-১২ পিস)' },
+      { value: 'biryani', label: 'বিরিয়ানি কাট (৪ পিস রোস্ট সাইজ)' },
+      { value: 'skinless', label: 'স্কিনলেস স্ট্যান্ডার্ড কাট' },
+      { value: 'boneless', label: 'বোনলেস কিউব / ডাইস' },
+      { value: 'whole', label: 'গোটা মুরগি ড্রেসড' }
+    ],
+    en: [
+      { value: 'curry', label: 'Curry Cut (8-12 pcs)' },
+      { value: 'biryani', label: 'Biryani Cut (4 pcs Roast Size)' },
+      { value: 'skinless', label: 'Skinless Standard Cut' },
+      { value: 'boneless', label: 'Boneless Cubes / Diced' },
+      { value: 'whole', label: 'Whole Dressed Chicken' }
+    ]
+  };
+
+  const B2B_SLOT_OPTIONS = {
+    bn: [
+      { value: 'restaurant-early', label: 'ভোর ৫:০০ - সকাল ৭:০০ (Early Commercial Slot)' },
+      { value: 'morning', label: 'সকাল ৭:০০ - ১০:০০ (Morning Slot)' },
+      { value: 'afternoon', label: 'দুপুর ১২:০০ - ৩:০০ (Afternoon Slot)' }
+    ],
+    en: [
+      { value: 'restaurant-early', label: '5:00 AM - 7:00 AM (Early Commercial Slot)' },
+      { value: 'morning', label: '7:00 AM - 10:00 AM (Morning Slot)' },
+      { value: 'afternoon', label: '12:00 PM - 3:00 PM (Afternoon Slot)' }
+    ]
   };
 
   const BANGLA_DIGITS = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
@@ -672,7 +742,7 @@
             <img src="${product.image}" alt="${name}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=800&q=80';" />
             <div class="card-badges-row">
               <span class="badge-pill ${product.badge_class}">${badge}</span>
-              <span class="badge-pill badge-halal">১০০% হালাল</span>
+              <span class="badge-pill badge-halal">${isBn ? '১০০% হালাল' : '100% Halal'}</span>
             </div>
           </div>
 
@@ -1146,7 +1216,7 @@
     }
   };
 
-  function trackOrder(orderId) {
+  function trackOrder(orderId, isSilent = false) {
     const cleanId = (orderId || '').trim().toUpperCase();
     const trackData = MOCK_TRACKING[cleanId] || {
       statusStep: 1,
@@ -1199,7 +1269,9 @@
       }).join('');
     }
 
-    showToast(state.lang === 'bn' ? `অর্ডার ${cleanId} এর তথ্য হালনাগাদ করা হয়েছে` : `Tracking data updated for ${cleanId}`);
+    if (!isSilent) {
+      showToast(state.lang === 'bn' ? `অর্ডার ${cleanId} এর তথ্য হালনাগাদ করা হয়েছে` : `Tracking data updated for ${cleanId}`);
+    }
   }
 
   // ----------------------------------------------------------------------------
@@ -1246,6 +1318,61 @@
   // ----------------------------------------------------------------------------
   // 12. LANGUAGE SWITCHER (Full UI Re-render & DOM sync)
   // ----------------------------------------------------------------------------
+  function updateDropdowns(lang) {
+    // 1. Global Area Select
+    const areaSelect = document.getElementById('global-area-select');
+    if (areaSelect) {
+      const currentVal = areaSelect.value;
+      const opts = AREA_OPTIONS[lang] || AREA_OPTIONS.bn;
+      areaSelect.innerHTML = opts.map(o => `<option value="${o.value}" ${o.value === currentVal ? 'selected' : ''}>${o.label}</option>`).join('');
+    }
+
+    // 2. B2B Variety Select
+    const varietySelect = document.getElementById('b2b-variety-select');
+    if (varietySelect) {
+      const currentVal = varietySelect.value;
+      const opts = B2B_VARIETY_OPTIONS[lang] || B2B_VARIETY_OPTIONS.bn;
+      varietySelect.innerHTML = opts.map(o => `<option value="${o.value}" ${o.value === currentVal ? 'selected' : ''}>${o.label}</option>`).join('');
+    }
+
+    // 3. B2B Cut Select
+    const cutSelect = document.getElementById('b2b-cut-select');
+    if (cutSelect) {
+      const currentVal = cutSelect.value;
+      const opts = B2B_CUT_OPTIONS[lang] || B2B_CUT_OPTIONS.bn;
+      cutSelect.innerHTML = opts.map(o => `<option value="${o.value}" ${o.value === currentVal ? 'selected' : ''}>${o.label}</option>`).join('');
+    }
+
+    // 4. B2B Slot Select
+    const slotSelect = document.getElementById('b2b-slot-select');
+    if (slotSelect) {
+      const currentVal = slotSelect.value;
+      const opts = B2B_SLOT_OPTIONS[lang] || B2B_SLOT_OPTIONS.bn;
+      slotSelect.innerHTML = opts.map(o => `<option value="${o.value}" ${o.value === currentVal ? 'selected' : ''}>${o.label}</option>`).join('');
+    }
+
+    // 5. Placeholders & Dynamic Inputs
+    const b2bRestName = document.getElementById('b2b-rest-name');
+    if (b2bRestName) {
+      b2bRestName.placeholder = lang === 'bn' ? "যেমন: সুলতান'স ডাইন / ধানমন্ডি কিচেন" : "e.g. Sultan's Dine / Dhanmondi Kitchen";
+    }
+
+    const trackingInput = document.getElementById('tracking-input-id');
+    if (trackingInput) {
+      trackingInput.placeholder = lang === 'bn' ? 'যেমন: TMS-89241' : 'e.g. TMS-89241';
+    }
+
+    const checkoutName = document.getElementById('checkout-name');
+    if (checkoutName) {
+      checkoutName.placeholder = lang === 'bn' ? 'যেমন: মো: তানভীর আহমেদ' : 'e.g. Tanvir Ahmed';
+    }
+
+    const checkoutAddress = document.getElementById('checkout-address');
+    if (checkoutAddress) {
+      checkoutAddress.placeholder = lang === 'bn' ? 'বাসা # ১২, রোড # ৪, ব্লক # সি, বনানী' : 'House # 12, Road # 4, Block # C, Banani';
+    }
+  }
+
   function setLanguage(lang) {
     state.lang = lang;
     localStorage.setItem('tms_lang', lang);
@@ -1278,11 +1405,20 @@
       }
     });
 
+    // Update Dropdowns and Select Lists
+    updateDropdowns(lang);
+
     // Re-render Dynamic components
     renderProducts();
     renderDeliverySlots();
     renderCart();
     updateB2BQuote();
+
+    // Refresh Tracking Display if active (silent)
+    const trackDispId = document.getElementById('track-disp-id');
+    if (trackDispId && trackDispId.textContent) {
+      trackOrder(trackDispId.textContent, true);
+    }
 
     // Re-position Category Tab Indicator
     updateTabIndicator();

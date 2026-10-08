@@ -4,8 +4,8 @@
   "description": "Tomar Murgi Store (তোমার মুরগি স্টোর) — Production Poultry Retail & Commercial B2B Web Platform",
   "main": "app.js",
   "scripts": {
-    "build": "echo 'Production static build ready'",
-    "start": "npx serve ."
+    "build": "node -e \"const fs=require('fs'); if(!fs.existsSync('dist')) fs.mkdirSync('dist',{recursive:true}); fs.copyFileSync('index.html','dist/index.html'); fs.copyFileSync('style.css','dist/style.css'); fs.copyFileSync('app.js','dist/app.js'); if(fs.existsSync('_redirects')) fs.copyFileSync('_redirects','dist/_redirects'); console.log('Static build successfully generated to dist directory');\"",
+    "start": "npx serve dist"
   },
   "keywords": [
     "poultry",

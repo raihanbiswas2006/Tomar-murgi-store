@@ -354,7 +354,7 @@
       'topbar.hotline': 'Hotline & WhatsApp:',
       'topbar.mode.retail': 'Home Grocery (Retail)',
       'topbar.mode.b2b': 'Restaurant Supply (B2B)',
-      'nav.catalog': 'Fresh Poultry\nMarket',
+      'nav.catalog': 'Fresh\nPoultry',
       'nav.b2b': 'Wholesale\nSupply',
       'nav.hygiene': 'Hygiene &\nStandards',
       'nav.tracking': 'Order\nTracking',
@@ -664,12 +664,6 @@
         b2bModeBtn.classList.remove('active');
       }
     }
-
-    // Update Mobile Mode Quick Bar active states
-    document.querySelectorAll('.mobile-mode-btn').forEach(btn => {
-      const btnView = btn.getAttribute('data-view');
-      btn.classList.toggle('active', btnView === targetView);
-    });
 
     // Update URL hash without breaking page scroll if user just clicked
     if (window.location.hash !== `#${targetView}`) {

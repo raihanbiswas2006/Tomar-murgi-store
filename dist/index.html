@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
   <!-- Unified Stylesheet (Tokens + Components + Animations) -->
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style.css?v=2.3" />
 </head>
 <body>
 
@@ -115,22 +115,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Mobile Segment & View Quick Bar (Visible on mobile screens) -->
-  <nav class="mobile-mode-bar" aria-label="Mobile Navigation Bar">
-    <button id="mobile-mode-retail-btn" class="mobile-mode-btn active" type="button" data-view="retail">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span data-i18n="topbar.mode.retail">বাসার বাজার (Retail)</span>
-    </button>
-    <button id="mobile-mode-b2b-btn" class="mobile-mode-btn" type="button" data-view="b2b">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      <span data-i18n="topbar.mode.b2b">রেস্টুরেন্ট সাপ্লাই (B2B)</span>
-    </button>
-    <button id="mobile-mode-tracking-btn" class="mobile-mode-btn" type="button" data-view="tracking">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <span data-i18n="nav.tracking">অর্ডার ট্র্যাকিং</span>
-    </button>
-  </nav>
 
   <!-- =========================================================================
        3. MAIN CONTENT CONTAINER (SPA Multi-View Architecture)
@@ -765,6 +749,6 @@
   </footer>
 
   <!-- Single Consolidated Vanilla Application Script -->
-  <script src="./app.js"></script>
+  <script src="./app.js?v=2.3"></script>
 </body>
 </html>

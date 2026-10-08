@@ -236,10 +236,10 @@
       'topbar.hotline': 'হটলাইন ও হোয়াটসঅ্যাপ:',
       'topbar.mode.retail': 'বাসার বাজার (Retail)',
       'topbar.mode.b2b': 'রেস্টুরেন্ট সাপ্লাই (B2B)',
-      'nav.catalog': 'তাজা মুরগি',
-      'nav.b2b': 'হোলসেল সাপ্লাই',
-      'nav.hygiene': 'হাইজিং ও মান',
-      'nav.tracking': 'অর্ডার ট্র্যাকিং',
+      'nav.catalog': 'তাজা মুরগির\nবাজার',
+      'nav.b2b': 'হোলসেল\nসাপ্লাই',
+      'nav.hygiene': 'হাইজিং ও\nমান',
+      'nav.tracking': 'অর্ডার\nট্র্যাকিং',
       'nav.slots': 'ডেলিভারি সময়',
       'nav.privacy': 'গোপনীয়তা নীতিমালা',
       'cart.title': 'আপনার ঝুড়ি',
@@ -352,12 +352,12 @@
       'topbar.area_label': 'Delivery Hub:',
       'topbar.hours': '6:00 AM - 10:00 PM',
       'topbar.hotline': 'Hotline & WhatsApp:',
-      'topbar.mode.retail': 'Home (Retail)',
-      'topbar.mode.b2b': 'Restaurant (B2B)',
-      'nav.catalog': 'Fresh Poultry',
-      'nav.b2b': 'Wholesale (B2B)',
-      'nav.hygiene': 'Hygiene Standards',
-      'nav.tracking': 'Order Tracking',
+      'topbar.mode.retail': 'Home Grocery (Retail)',
+      'topbar.mode.b2b': 'Restaurant Supply (B2B)',
+      'nav.catalog': 'Fresh Poultry\nMarket',
+      'nav.b2b': 'Wholesale\nSupply',
+      'nav.hygiene': 'Hygiene &\nStandards',
+      'nav.tracking': 'Order\nTracking',
       'nav.slots': 'Delivery Slots',
       'nav.privacy': 'Privacy Policy',
       'cart.title': 'Your Cart',
@@ -664,6 +664,12 @@
         b2bModeBtn.classList.remove('active');
       }
     }
+
+    // Update Mobile Mode Quick Bar active states
+    document.querySelectorAll('.mobile-mode-btn').forEach(btn => {
+      const btnView = btn.getAttribute('data-view');
+      btn.classList.toggle('active', btnView === targetView);
+    });
 
     // Update URL hash without breaking page scroll if user just clicked
     if (window.location.hash !== `#${targetView}`) {

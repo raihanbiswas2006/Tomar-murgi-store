@@ -330,6 +330,12 @@ ul, ol {
   flex-shrink: 0;
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .brand-text h1 {
   font-size: 18px;
   font-weight: 700;
@@ -349,6 +355,7 @@ ul, ol {
   color: var(--color-slate-600);
   display: block;
   white-space: nowrap;
+  line-height: 1.3;
 }
 
 /* Customer Segment Switcher (Retail vs B2B) */
@@ -363,13 +370,14 @@ ul, ol {
   box-shadow: inset 0 1px 2px rgba(20, 24, 33, 0.05);
   flex-shrink: 0;
   white-space: nowrap;
+  height: 44px;
 }
 
 .segment-pill-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-size: 12.5px;
   font-weight: 600;
@@ -380,6 +388,7 @@ ul, ol {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   user-select: none;
+  height: 36px;
 }
 
 .segment-pill-btn svg {
@@ -413,26 +422,33 @@ ul, ol {
   transform: scale(1.08);
 }
 
-/* Nav Menu Links */
+/* Nav Menu Links (Balanced 2-line stacked buttons matching Bengali & English 1:1) */
 .header-nav-menu {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
 .nav-link-btn {
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--color-slate-700);
-  padding: 6px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-control);
   transition: all var(--duration-quick);
   cursor: pointer;
-  white-space: nowrap;
-  line-height: 1.2;
+  white-space: pre-line;
+  line-height: 1.25;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 44px;
+  min-height: 44px;
+  border: 1px solid transparent;
+  user-select: none;
 }
 
 .nav-link-btn:hover {
@@ -443,6 +459,8 @@ ul, ol {
 .nav-link-btn.active {
   color: var(--color-freshness-primary-600);
   background-color: var(--color-freshness-primary-50);
+  border-color: rgba(184, 50, 34, 0.08);
+  font-weight: 700;
 }
 
 /* Header Actions */
@@ -465,7 +483,8 @@ ul, ol {
   font-size: 13px;
   font-weight: 700;
   transition: all var(--duration-quick);
-  min-height: 38px;
+  height: 44px;
+  min-height: 44px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -482,16 +501,17 @@ ul, ol {
 .cart-trigger-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   background-color: var(--color-freshness-primary-600);
   color: #FFFFFF;
   padding: 6px 14px;
   border-radius: var(--radius-control);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(184, 50, 34, 0.25);
   transition: all var(--duration-quick);
-  min-height: 38px;
+  height: 44px;
+  min-height: 44px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -515,7 +535,12 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 4px;
+  padding: 0 5px;
+}
+
+/* Mobile Segment Sub-Bar (Hidden by default, shown on mobile) */
+.mobile-mode-bar {
+  display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -2040,23 +2065,131 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   16. RESPONSIVE BREAKPOINTS
+   16. COMPREHENSIVE RESPONSIVE DESIGN SYSTEM (PC, Tablet, Mobile)
    -------------------------------------------------------------------------- */
-@media (max-width: 900px) {
-  .hero-grid, .b2b-grid, .footer-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+
+/* TIER 1: Standard Laptops & Compact Desktops (993px - 1200px) */
+@media (max-width: 1200px) {
+  .header-inner {
+    gap: 8px;
+  }
+  .brand-text h1 {
+    font-size: 16.5px;
+  }
+  .brand-text span {
+    font-size: 11px;
   }
   .segment-pill-btn {
     padding: 5px 10px;
-    font-size: 12px;
+    font-size: 11.5px;
+  }
+  .nav-link-btn {
+    font-size: 11.5px;
+    padding: 4px 8px;
+  }
+  .lang-btn {
+    padding: 5px 10px;
+    font-size: 12.5px;
+  }
+  .cart-trigger-btn {
+    padding: 5px 12px;
+    font-size: 12.5px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
   }
 }
 
-@media (max-width: 640px) {
+/* TIER 2: Tablets & iPads (768px - 992px) */
+@media (max-width: 992px) {
+  .topbar-info-item:not(:first-child) {
+    display: none;
+  }
   .header-inner {
-    height: 64px;
+    height: 68px;
+  }
+  .brand-text h1 {
+    font-size: 16px;
+  }
+  .brand-text span {
+    font-size: 10.5px;
+  }
+  .segment-control-wrapper {
+    display: none;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .hero-image-wrap {
+    order: -1;
+    max-height: 340px;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+  .hero-image-wrap img {
+    max-height: 320px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .trust-assurances-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  .slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  .b2b-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+  .cart-drawer {
+    width: 420px;
+    max-width: 90vw;
+  }
+}
+
+/* TIER 3: Mobile Devices & Phablets (< 768px) */
+@media (max-width: 767px) {
+  .topbar {
+    padding: 5px 0;
+    font-size: 11.5px;
+  }
+  .topbar-container {
+    justify-content: space-between;
+    gap: 6px;
+  }
+  .topbar-badge-pill {
+    display: none;
+  }
+  .header-inner {
+    height: 60px;
     gap: 8px;
+  }
+  .brand-icon-box {
+    width: 36px;
+    height: 36px;
+  }
+  .brand-icon-box svg {
+    width: 20px;
+    height: 20px;
+  }
+  .brand-text h1 {
+    font-size: 15px;
   }
   .brand-text span {
     display: none;
@@ -2067,21 +2200,171 @@ ul, ol {
   .segment-control-wrapper {
     display: none;
   }
-  .stats-bar, .product-grid, .slots-grid {
-    grid-template-columns: 1fr;
+  .header-actions {
+    gap: 6px;
   }
+  .lang-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+    height: 36px;
+    min-height: 36px;
+  }
+  .cart-trigger-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    height: 36px;
+    min-height: 36px;
+    gap: 5px;
+  }
+  
+  /* Mobile Segment Sub-Bar (Easy thumb switching for mobile users) */
+  .mobile-mode-bar {
+    display: flex;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--color-slate-200);
+    padding: 6px 12px;
+    gap: 6px;
+    position: sticky;
+    top: 60px;
+    z-index: 35;
+    box-shadow: 0 2px 4px rgba(20, 24, 33, 0.04);
+  }
+  .mobile-mode-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-slate-700);
+    background: var(--color-slate-100);
+    border: 1px solid var(--color-slate-200);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .mobile-mode-btn.active {
+    background: var(--color-freshness-primary-50);
+    color: var(--color-freshness-primary-600);
+    border-color: var(--color-freshness-primary-300);
+    font-weight: 700;
+  }
+  .mobile-mode-btn svg {
+    flex-shrink: 0;
+  }
+
+  .hero-section {
+    padding: var(--space-6) 0 var(--space-6);
+  }
+  .hero-title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  .hero-subtitle {
+    font-size: 13.5px;
+    margin-bottom: var(--space-5);
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+  .stats-bar {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .trust-assurances-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .category-tabs-nav {
+    display: flex;
+    width: max-content;
+  }
+  .category-tab-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .slots-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  /* Cart Drawer as Native Mobile Bottom Sheet */
   .cart-drawer {
     top: auto;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     max-width: 100%;
-    height: 85vh;
+    height: 90vh;
     border-top-left-radius: var(--radius-sheet);
     border-top-right-radius: var(--radius-sheet);
     transform: translateY(100%);
   }
   .cart-drawer.open {
     transform: translateY(0);
+  }
+  .drawer-body {
+    padding: var(--space-4);
+    max-height: calc(90vh - 140px);
+  }
+  .drawer-footer {
+    padding: var(--space-4);
+  }
+}
+
+/* TIER 4: Compact Phones (< 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.45rem;
+  }
+  .mobile-mode-btn {
+    padding: 6px 8px;
+    font-size: 11.5px;
+    gap: 4px;
+  }
+  .mobile-mode-btn svg {
+    display: none;
+  }
+  .product-card-body {
+    padding: var(--space-3);
+  }
+  .product-title {
+    font-size: 16px;
+  }
+  .product-price-bar {
+    flex-wrap: wrap;
+    gap: 4px;
   }
 }
 
